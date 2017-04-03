@@ -19,7 +19,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 
 # ——————————
-# Installs i386 architecture required for running 32 bit Android tools
+# Install i386 architecture required for running 32 bit Android tools
 # ——————————
 
 RUN dpkg --add-architecture i386 && \
@@ -31,7 +31,7 @@ RUN dpkg --add-architecture i386 && \
 
 
 # ——————————
-# Installs Android SDK
+# Install Android SDK
 # ——————————
 
 ENV ANDROID_SDK_VERSION r24.4.1
@@ -49,7 +49,6 @@ RUN cd /opt && \
     rm ${ANDROID_SDK_FILENAME} && \
     echo y | android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_API_LEVELS},${ANDROID_BUILD_TOOLS_VERSION} && \
     echo y | android update sdk --no-ui --all --filter "${ANDROID_EXTRA_COMPONENTS}"
-
 
 # udev rules for most android devices
 RUN cd /etc/udev/rules.d/ && wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
