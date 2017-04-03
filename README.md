@@ -1,4 +1,4 @@
-# Dockerfile-android-sdk
+# android-sdk-local
 
 **NOTE: this is under development, please DO NOT use it right now.**
 
