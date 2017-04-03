@@ -60,7 +60,12 @@ RUN cd /etc/udev/rules.d/ && wget https://raw.githubusercontent.com/M0Rf30/andro
 # ——————————
 # Installs Gradle
 # ——————————
+
 ENV GRADLE_VERSION 2.14
+
+RUN apt-get update && \
+  apt-get install unzip -y && \
+  apt-get clean
 
 RUN cd /usr/lib \
  && curl -fl https://downloads.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -o gradle-bin.zip \
