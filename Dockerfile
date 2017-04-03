@@ -51,9 +51,7 @@ RUN cd /opt && \
     echo y | android update sdk --no-ui --all --filter "${ANDROID_EXTRA_COMPONENTS}"
 
 
-# ——————————
-# Install udev rules for most android devices
-# ——————————
+# udev rules for most android devices
 RUN cd /etc/udev/rules.d/ && wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
 
 
