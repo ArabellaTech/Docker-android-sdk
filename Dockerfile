@@ -12,7 +12,9 @@ RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886 && \
   apt-get update && \
   apt-get install oracle-java8-installer -y && \
-  java -version
+  rm -rf /var/lib/apt/lists/* && \
+  apt-get autoremove -y && \
+  apt-get clean
 
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
