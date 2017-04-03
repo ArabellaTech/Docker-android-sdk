@@ -46,11 +46,12 @@ ENV ANDROID_EXTRA_COMPONENTS extra-android-m2repository,extra-google-m2repositor
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 RUN cd /opt && \
-    wget -q ${ANDROID_SDK_URL} && \
-    tar -xzf ${ANDROID_SDK_FILENAME} && \
-    rm ${ANDROID_SDK_FILENAME} && \
-    echo y | android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_API_LEVELS},${ANDROID_BUILD_TOOLS_VERSION} && \
-    echo y | android update sdk --no-ui --all --filter "${ANDROID_EXTRA_COMPONENTS}"
+  wget -q ${ANDROID_SDK_URL} && \
+  tar -xzf ${ANDROID_SDK_FILENAME} && \
+  rm ${ANDROID_SDK_FILENAME} && \
+  echo y | android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_API_LEVELS},${ANDROID_BUILD_TOOLS_VERSION} && \
+  echo y | android update sdk --no-ui --all --filter "${ANDROID_EXTRA_COMPONENTS}"
 
 # udev rules for most android devices
-RUN cd /etc/udev/rules.d/ && wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
+RUN cd /etc/udev/rules.d/ && \
+  wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
