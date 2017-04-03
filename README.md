@@ -1,6 +1,6 @@
 # android-sdk-local
 
-**NOTE: this is under development, please DO NOT use it right now.**
+**NOTE: this is under development (testing docker hub build), please DO NOT use it right now.**
 
 Based on arabella/node-yarn-zsh-local (Debian Jessie)
 
